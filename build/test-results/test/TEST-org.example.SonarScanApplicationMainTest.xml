@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.SonarScanApplicationMainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-04-03T06:26:51.016Z" hostname="ip-10-1-210-217.ap-south-1.compute.internal" time="0.266">
+  <properties/>
+  <testcase name="main delegates to SpringApplication.run with same arguments" classname="org.example.SonarScanApplicationMainTest" time="0.264"/>
+  <testcase name="main accepts empty args array" classname="org.example.SonarScanApplicationMainTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

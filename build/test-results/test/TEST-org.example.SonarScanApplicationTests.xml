@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.SonarScanApplicationTests" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-04-03T06:26:51.862Z" hostname="ip-10-1-210-217.ap-south-1.compute.internal" time="0.078">
+  <properties/>
+  <testcase name="GET / returns greeting via TestRestTemplate" classname="org.example.SonarScanApplicationTests" time="0.075"/>
+  <testcase name="application context loads" classname="org.example.SonarScanApplicationTests" time="0.002"/>
+  <system-out><![CDATA[2026-04-03T11:56:51.287+05:30  INFO 25992 --- [sonar-scan] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [org.example.SonarScanApplicationTests]: SonarScanApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-04-03T11:56:51.290+05:30  INFO 25992 --- [sonar-scan] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration org.example.SonarScanApplication for test class org.example.SonarScanApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.2)
+
+2026-04-03T11:56:51.332+05:30  INFO 25992 --- [sonar-scan] [    Test worker] org.example.SonarScanApplicationTests    : Starting SonarScanApplicationTests using Java 17.0.17 with PID 25992 (started by nishantsharma in /Users/nishantsharma/project/learning/myworkspace/sonar-scan/sonar-scan)
+2026-04-03T11:56:51.333+05:30  INFO 25992 --- [sonar-scan] [    Test worker] org.example.SonarScanApplicationTests    : No active profile set, falling back to 1 default profile: "default"
+2026-04-03T11:56:51.620+05:30  INFO 25992 --- [sonar-scan] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-04-03T11:56:51.629+05:30  INFO 25992 --- [sonar-scan] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-03T11:56:51.629+05:30  INFO 25992 --- [sonar-scan] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-04-03T11:56:51.662+05:30  INFO 25992 --- [sonar-scan] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-03T11:56:51.662+05:30  INFO 25992 --- [sonar-scan] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 327 ms
+2026-04-03T11:56:51.857+05:30  INFO 25992 --- [sonar-scan] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 64778 (http) with context path '/'
+2026-04-03T11:56:51.861+05:30  INFO 25992 --- [sonar-scan] [    Test worker] org.example.SonarScanApplicationTests    : Started SonarScanApplicationTests in 0.566 seconds (process running for 2.686)
+2026-04-03T11:56:51.922+05:30  INFO 25992 --- [sonar-scan] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-03T11:56:51.922+05:30  INFO 25992 --- [sonar-scan] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-03T11:56:51.923+05:30  INFO 25992 --- [sonar-scan] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

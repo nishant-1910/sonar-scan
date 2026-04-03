@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.HelloControllerTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-04-03T06:26:49.610Z" hostname="ip-10-1-210-217.ap-south-1.compute.internal" time="0.041">
+  <properties/>
+  <testcase name="hello should never return null" classname="org.example.HelloControllerTest" time="0.038"/>
+  <testcase name="hello should return non-blank text" classname="org.example.HelloControllerTest" time="0.001"/>
+  <testcase name="hello should return fixed greeting" classname="org.example.HelloControllerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
