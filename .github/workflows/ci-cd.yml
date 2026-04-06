@@ -1,11 +1,12 @@
-      - name: Run Tests
-        run: ./gradlew test
+- name: Run Tests
+  run: ./gradlew test
 
-      - name: Generate JaCoCo Report
-        run: ./gradlew jacocoTestReport
+- name: Generate JaCoCo Report
+  run: ./gradlew jacocoTestReport
 
-      - name: Sonar Scan
-        run: ./gradlew sonarqube \
-          -Dsonar.projectKey=your_project_key \
-          -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+- name: Sonar Scan
+  run: |
+    ./gradlew sonarqube \
+      -Dsonar.projectKey=your_project_key \
+      -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+      -Dsonar.login=${{ secrets.SONAR_TOKEN }}
