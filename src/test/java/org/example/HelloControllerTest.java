@@ -20,7 +20,7 @@ class HelloControllerTest {
     void shouldReturnGreetingWhenHelloInvoked() {
         String result = controller.hello();
 
-        assertThat(result).isEqualTo("Hello from Spring Boot");
+        assertThat(result).isEqualTo("Hello from Spring Boot... sonar scan");
     }
 
     @Test
