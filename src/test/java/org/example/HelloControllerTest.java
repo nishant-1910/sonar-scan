@@ -20,6 +20,7 @@ class HelloControllerTest {
     void shouldReturnGreetingWhenHelloInvoked() {
         String result = controller.hello();
 
+
         assertThat(result).isEqualTo("Hello from Spring Boot");
     }
 
