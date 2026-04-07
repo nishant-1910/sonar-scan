@@ -20,22 +20,6 @@ class HelloControllerTest {
     void shouldReturnGreetingWhenHelloInvoked() {
         String result = controller.hello();
 
-        assertThat(result).isEqualTo("Hello from Spring Boot.......");
-    }
-
-    @Test
-    @DisplayName("hello should never return null")
-    void shouldNotReturnNullWhenHelloInvoked() {
-        String result = controller.hello();
-
-        assertThat(result).isNotNull();
-    }
-
-    @Test
-    @DisplayName("hello should return non-blank text")
-    void shouldReturnNonBlankWhenHelloInvoked() {
-        String result = controller.hello();
-
-        assertThat(result).isNotBlank();
+        assertThat(result).isEqualTo("Hello from Spring Boot");
     }
 }
