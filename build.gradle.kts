@@ -38,3 +38,14 @@ tasks.jacocoTestReport {
         html.required.set(true)
     }
 }
+
+tasks.jacocoTestCoverageVerification {
+    dependsOn(tasks.test)
+    violationRules {
+        rule {
+            limit {
+                minimum = "0.90".toBigDecimal()
+            }
+        }
+    }
+}

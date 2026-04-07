@@ -19,7 +19,7 @@ class HelloControllerTest {
     @DisplayName("hello should return fixed greeting")
     void shouldReturnGreetingWhenHelloInvoked() {
         String result = controller.hello();
-        
+
         assertThat(result).isEqualTo("Hello from Spring Boot.......");
     }
 
