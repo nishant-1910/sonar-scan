@@ -19,6 +19,9 @@ jobs:
       - name: Generate JaCoCo Report
         run: ./gradlew jacocoTestReport
 
+      - name: Enforce Coverage
+        run: ./gradlew jacocoTestCoverageVerification
+
       - name: Sonar Scan
         run: |
           ./gradlew sonarqube \
