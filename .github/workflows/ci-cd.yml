@@ -25,9 +25,23 @@ jobs:
       - name: Extract Coverage
         id: coverage
         run: |
-          COVERAGE=$(grep -o 'line-rate="[0-9.]*"' build/reports/jacoco/test/jacocoTestReport.xml | head -1 | cut -d'"' -f2)
-          COVERAGE_PERCENT=$(echo "$COVERAGE * 100" | bc | cut -d'.' -f1)
+          FILE="build/reports/jacoco/test/jacocoTestReport.xml"
 
+          if [ ! -f "$FILE" ]; then
+            echo "JaCoCo XML not found!"
+            exit 1
+          fi
+
+          COVERAGE=$(grep -o 'line-rate="[0-9.]*"' $FILE | head -1 | cut -d'"' -f2)
+
+          if [ -z "$COVERAGE" ]; then
+            echo "Coverage not found in XML!"
+            exit 1
+          fi
+
+          COVERAGE_PERCENT=$(awk "BEGIN {printf \"%d\", $COVERAGE * 100}")
+
+          echo "Coverage: $COVERAGE_PERCENT%"
           echo "coverage=$COVERAGE_PERCENT" >> $GITHUB_OUTPUT
 
       - name: Sonar Scan
