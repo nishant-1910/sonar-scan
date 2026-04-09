@@ -20,10 +20,43 @@ jobs:
       - name: Generate JaCoCo Report
         run: ./gradlew jacocoTestReport
 
-      - name: Sonar Scan
+      - name: Enforce Coverage
+        run: ./gradlew jacocoTestCoverageVerification
+
+      - name: Extract Coverage
+        id: coverage
         run: |
-          ./gradlew sonarqube \
-            --warning-mode=all \
-            -Dsonar.projectKey=your_project_key \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+          FILE="build/reports/jacoco/test/jacocoTestReport.xml"
+
+          if [ ! -f "$FILE" ]; then
+            echo "JaCoCo XML not found!"
+            exit 1
+          fi
+
+          LINE=$(grep '<counter type="LINE"' $FILE | head -1)
+
+          if [ -z "$LINE" ]; then
+            echo "LINE counter not found!"
+            exit 1
+          fi
+
+          COVERED=$(echo $LINE | sed -E 's/.*covered="([0-9]+)".*/\1/')
+          MISSED=$(echo $LINE | sed -E 's/.*missed="([0-9]+)".*/\1/')
+
+          TOTAL=$((COVERED + MISSED))
+          COVERAGE=$((100 * COVERED / TOTAL))
+
+          echo "Coverage: $COVERAGE%"
+          echo "coverage=$COVERAGE" >> $GITHUB_OUTPUT
+        
+
+          
+
+#      - name: Sonar Scan
+#        run: |
+#          ./gradlew sonarqube \
+#            --warning-mode=all \
+#            -Dsonar.projectKey=your_project_key \
+#            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+#            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+#            -Dsonar.qualitygate.wait=true
