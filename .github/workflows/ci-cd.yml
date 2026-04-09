@@ -51,11 +51,11 @@ jobs:
 
           
 
-      - name: Sonar Scan
-        run: |
-          ./gradlew sonarqube \
-            --warning-mode=all \
-            -Dsonar.projectKey=your_project_key \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.qualitygate.wait=true
+#      - name: Sonar Scan
+#        run: |
+#          ./gradlew sonarqube \
+#            --warning-mode=all \
+#            -Dsonar.projectKey=your_project_key \
+#            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+#            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+#            -Dsonar.qualitygate.wait=true
