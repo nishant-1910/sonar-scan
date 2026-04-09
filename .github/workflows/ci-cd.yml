@@ -22,6 +22,14 @@ jobs:
       - name: Enforce Coverage
         run: ./gradlew jacocoTestCoverageVerification
 
+      - name: Extract Coverage
+        id: coverage
+        run: |
+          COVERAGE=$(grep -o 'line-rate="[0-9.]*"' build/reports/jacoco/test/jacocoTestReport.xml | head -1 | cut -d'"' -f2)
+          COVERAGE_PERCENT=$(echo "$COVERAGE * 100" | bc | cut -d'.' -f1)
+
+          echo "coverage=$COVERAGE_PERCENT" >> $GITHUB_OUTPUT
+
       - name: Sonar Scan
         run: |
           ./gradlew sonarqube \
@@ -29,7 +37,4 @@ jobs:
             -Dsonar.projectKey=your_project_key \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.qualitygate.wait=true \
-            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }} \
-            -Dsonar.pullrequest.branch=${{ github.head_ref }} \
-            -Dsonar.pullrequest.base=${{ github.base_ref }}
+            -Dsonar.qualitygate.wait=true
