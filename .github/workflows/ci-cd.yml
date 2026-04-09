@@ -32,17 +32,24 @@ jobs:
             exit 1
           fi
 
-          COVERAGE=$(grep -o 'line-rate="[0-9.]*"' $FILE | head -1 | cut -d'"' -f2)
+          LINE=$(grep '<counter type="LINE"' $FILE | head -1)
 
-          if [ -z "$COVERAGE" ]; then
-            echo "Coverage not found in XML!"
+          if [ -z "$LINE" ]; then
+            echo "LINE counter not found!"
             exit 1
           fi
 
-          COVERAGE_PERCENT=$(awk "BEGIN {printf \"%d\", $COVERAGE * 100}")
+          COVERED=$(echo $LINE | sed -E 's/.*covered="([0-9]+)".*/\1/')
+          MISSED=$(echo $LINE | sed -E 's/.*missed="([0-9]+)".*/\1/')
 
-          echo "Coverage: $COVERAGE_PERCENT%"
-          echo "coverage=$COVERAGE_PERCENT" >> $GITHUB_OUTPUT
+          TOTAL=$((COVERED + MISSED))
+          COVERAGE=$((100 * COVERED / TOTAL))
+
+          echo "Coverage: $COVERAGE%"
+          echo "coverage=$COVERAGE" >> $GITHUB_OUTPUT
+        
+
+          
 
       - name: Sonar Scan
         run: |
